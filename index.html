@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Siswa M. Farel Valentino</title>
+
+    <style>
+        /* DARK BACKGROUND + GRADIENT ANIMASI */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+            background: linear-gradient(270deg, #0f2027, #203a43, #2c5364, #1a1a2e);
+            background-size: 1600% 1600%;
+            animation: gradientMove 30s ease infinite;
+            color: white;
+            position: relative;
+        }
+
+        @keyframes gradientMove {
+            0% {background-position: 0% 50%;}
+            25% {background-position: 50% 100%;}
+            50% {background-position: 100% 50%;}
+            75% {background-position: 50% 0%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        /* CANVAS PARTICLE BACKGROUND */
+        #particles {
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index: -1;
+        }
+
+        /* CONTAINER GLASSMORPHISM + PARALLAX */
+        .container {
+            max-width: 650px;
+            margin: 80px auto;
+            background: rgba(20, 20, 30, 0.4);
+            backdrop-filter: blur(15px);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            opacity: 0;
+            animation: fadeIn 1.2s ease forwards;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .container.parallax {
+            transform: translateY(0);
+        }
+
+        /* FOTO PROFIL */
+        .profile-pic {
+            display: block;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(0.7);
+            animation: zoomIn 1s ease forwards;
+            animation-delay: 0.1s;
+            border: 3px solid white;
+            box-shadow: 0 0 15px #3b82f6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: slideDown 0.9s ease forwards;
+            animation-delay: 0.3s;
+            text-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6;
+        }
+
+        .item {
+            margin-bottom: 18px;
+            padding: 15px;
+            background: rgba(30, 30, 40, 0.5);
+            border-radius: 10px;
+            border-left: 5px solid #3b82f6;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            box-shadow: 0 0 10px rgba(59,130,246,0.5);
+        }
+
+        .item:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 0 25px rgba(59,130,246,0.8);
+            background: rgba(40,40,50,0.6);
+        }
+
+        .item:nth-child(3) { animation-delay: 0.4s; }
+        .item:nth-child(4) { animation-delay: 0.5s; }
+        .item:nth-child(5) { animation-delay: 0.6s; }
+        .item:nth-child(6) { animation-delay: 0.7s; }
+        .item:nth-child(7) { animation-delay: 0.8s; }
+        .item:nth-child(8) { animation-delay: 0.9s; }
+        .item:nth-child(9) { animation-delay: 1.0s; }
+
+        .label {
+            font-weight: bold;
+            color: #3b82f6;
+            font-size: 15px;
+        }
+
+        .text {
+            margin-top: 5px;
+            font-size: 15px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-shadow: 0 0 5px rgba(59,130,246,0.8);
+        }
+
+        .btn-download {
+            display: block;
+            width: 220px;
+            margin: 20px auto 0 auto;
+            padding: 12px;
+            text-align: center;
+            background-color: #3b82f6;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 10px #3b82f6;
+        }
+
+        .btn-download:hover {
+            background-color: #2563eb;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #3b82f6;
+        }
+
+        /* ANIMASI */
+        @keyframes fadeIn { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: scale(1); } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: scale(1); } }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- CANVAS PARTICLE -->
+    <canvas id="particles"></canvas>
+
+    <div class="container parallax">
+
+    <img src="1765357393125.jpg" alt="Foto Profil Farel" class="profile-pic">
+        <h1>PROFILE THE SMART BOY M.FAREL VALENTINO</h1>
+
+        <div class="item">
+            <div class="label">Nama Lengkap:</div>
+            <div class="text">Muhammad Farel Valentino</div>
+        </div>
+
+        <div class="item">
+            <div class="label">Tempat, Tanggal Lahir:</div>
+            <div class="text">Palembang-Indonesia, 14 February 2010</div>
+        </div>
+
+        <div class="item">
+            <div class="label">Agama:</div>
+            <div class="text">Islam</div>
+        </div>
+
+        <div class="item">
+            <div class="label">Status Pendidikan:</div>
+            <div class="text">Aktif</div>
+        </div>
+
+        <div class="item">
+            <div class="label">Asal Sekolah:</div>
+            <div class="text">SMK Muhammadiyah 2 Palembang</div>
+        </div>
+
+        <div class="item">
+            <div class="label">Hobi:</div>
+            <div class="text">Belajar, Gaming & Muay thai academy</div>
+        </div>
+
+        <div class="item">
+            <div class="label">Prestasi:</div>
+            <div class="text">
+                - Juara 2 Kejuaraan Muay Thai Sumatera Selatan 2025 U-15 BB 45Kg<br>
+                - Finalis Tahap 3 Olimpiade Jaringan Mikrotik 2025<br>
+                - Finalis Olimpiade Mikrotik Event Vokasi Fest<br>
+                - Juara 2 Mobile legend Event PalcomTech Palembang Tingkat SMA/SMK 2024<br>
+                - Best of EXP Lane MLBB Palcomtech 2024
+                - Best of Player MLBB Palcomtech 2024
+              
+                
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="label">Target:</div>
+            <div class="text">Menjadi lebih berkembang dan lebih berprestasi.</div>
+        </div>
+
+        <a href="Biodata_Farel.pdf" download class="btn-download">Download PDF Biodata</a>
+
+    </div>
+
+    <!-- SCRIPT PARALLAX & PARTICLE -->
+    <script>
+        // Parallax scroll
+        const container = document.querySelector('.container.parallax');
+        window.addEventListener('scroll', () => {
+            let offset = window.pageYOffset;
+            container.style.transform = 'translateY(' + offset * 0.2 + 'px)';
+        });
+
+        // Particle background
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        class Particle {
+            constructor(x, y, size, speedX, speedY){
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.speedX = speedX;
+                this.speedY = speedY;
+            }
+            update(){
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if(this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw(){
+                ctx.fillStyle = 'rgba(59,130,246,0.8)';
+                ctx.shadowColor = '#3b82f6';
+                ctx.shadowBlur = 10;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+                ctx.fill();
+            }
+        }
+
+        function init(){
+            particlesArray = [];
+            let numberOfParticles = 80;
+            for(let i=0; i<numberOfParticles; i++){
+                let size = Math.random() * 3 + 1;
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                let speedX = (Math.random() - 0.5) * 0.7;
+                let speedY = (Math.random() - 0.5) * 0.7;
+                particlesArray.push(new Particle(x,y,size,speedX,speedY));
+            }
+        }
+
+        function animate(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            for(let i=0;i<particlesArray.length;i++){
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+    </script>
+
+</body>
+</html>
